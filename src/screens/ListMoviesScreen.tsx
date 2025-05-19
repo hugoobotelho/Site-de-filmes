@@ -162,7 +162,6 @@ const ListMoviesScreen = () => {
 
     }, [location.pathname, location.state])
 
-
     const numberOfComponents = 19;
 
     return (
