@@ -4,14 +4,11 @@ import { Container, Title } from "../styles/GenreScreenStyle"
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
-import Typography from '@mui/material/Typography';
-
-import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import { useEffect, useState, } from "react";
 
 // import { useGenres } from "../contexts/ContextGenres";
 import { useMovies } from "../contexts/ContextMovies";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useLocation, useNavigate,  } from "react-router-dom";
 
 
 const YearsScreen = () => {
@@ -70,7 +67,7 @@ const YearsScreen = () => {
 
                 {isLoading ? (
                     (
-                        Array.from({ length: numberOfComponents }).map((_, index) => (
+                        Array.from({ length: numberOfComponents }).map((_) => (
                             < Skeleton variant="rounded"
                                 sx={{ bgcolor: `${Colors.cinzaMedio}` }}
                                 width={180}

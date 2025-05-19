@@ -1,5 +1,5 @@
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useMovies } from "../contexts/ContextMovies";
 
@@ -11,7 +11,7 @@ import MovieCard from "../components/MovieCard";
 import { useLocation, useParams } from "react-router-dom";
 
 import { Container, Title } from "../styles/ListMoviesScreenStyle"
-import { GenreContext, useGenres } from "../contexts/ContextGenres";
+import {  useGenres } from "../contexts/ContextGenres";
 
 interface Movie {
     name: string,
@@ -43,7 +43,7 @@ const ListMoviesScreen = () => {
     const { id } = useParams<{ id: string }>()
     const { year } = useParams<{ year: string }>()
 
-    const [movies, setMovies] = useState<Movie[]>([])
+    // const [movies, setMovies] = useState<Movie[]>([])
     // const [genre, setGenre] = useState<Genre | undefined>()
 
     const movieContex = useMovies()
@@ -175,7 +175,7 @@ const ListMoviesScreen = () => {
 
                 {isLoading ? (
                     (
-                        Array.from({ length: numberOfComponents }).map((_, index) => (
+                        Array.from({ length: numberOfComponents }).map((_) => (
                             < Skeleton variant="rounded"
                                 sx={{ bgcolor: `${Colors.cinzaMedio}` }}
                                 width={188}

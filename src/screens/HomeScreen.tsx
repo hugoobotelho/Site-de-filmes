@@ -1,19 +1,15 @@
 
-import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 
 import { useMovies } from "../contexts/ContextMovies";
 
-import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import Colors from "../constants/Colors";
 
-import Button from '@mui/material/Button';
 import ListMoviesScreen from "./ListMoviesScreen";
 
 import { BarChart } from '@mui/x-charts/BarChart';
 import { useGenres } from "../contexts/ContextGenres";
-import { useLocation } from "react-router-dom";
 
 interface Movie {
     name: string,
@@ -24,11 +20,11 @@ interface Movie {
     poster: string
 }
 
-interface Year {
-    year: string,
-    grade: number,
-    movies: Movie[]
-}
+// interface Year {
+//     year: string,
+//     grade: number,
+//     movies: Movie[]
+// }
 
 interface Genre {
     name: string,
@@ -38,15 +34,10 @@ interface Genre {
     movies: Movie[],
 }
 
-interface Year {
-    year: string,
-    grade: number,
-    movies: Movie[]
-}
 
 const HomeScreen = () => {
 
-    const location = useLocation()
+    // const location = useLocation()
 
     const movieContex = useMovies()
     const genresContex = useGenres()

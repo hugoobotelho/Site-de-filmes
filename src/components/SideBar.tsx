@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import { Container, ButtonRouter } from "../styles/SideBarStyle"
-import { useEffect, useState } from "react"
+// import { useState } from "react"
 
 import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 import GradeIcon from '@mui/icons-material/Grade';
@@ -14,45 +14,45 @@ const SideBar = () => {
 
     const location = useLocation()
 
-    const [activePage, setActivePage] = useState(location.pathname)
-    const handleItemClick = (path: string) => {
-        setActivePage(path)
-    }
+    // const [activePage, setActivePage] = useState(location.pathname)
+    // const handleItemClick = (path: string) => {
+    //     setActivePage(path)
+    // }
 
 
     return (
         <Container>
             <ButtonRouter isActive={location.pathname.startsWith('/home')}>
                 <HomeFilledIcon style={{ color: `${Colors.branco}` }} />
-                <Link to="/home" onClick={() => handleItemClick('/home')}>
+                <Link to="/home">
                     {/* <DashboardIcon style={{ marginRight: '10px', width: '20px' }} />  */}
                     Home
                 </Link>
             </ButtonRouter>
             <ButtonRouter isActive={location.pathname.startsWith('/topRated')}>
                 <GradeIcon style={{ color: `${Colors.branco}` }} />
-                <Link to="/topRated" onClick={() => handleItemClick('/topRated')}>
+                <Link to="/topRated">
                     {/* <DashboardIcon style={{ marginRight: '10px', width: '20px' }} />  */}
                     Top Rated
                 </Link>
             </ButtonRouter>
             <ButtonRouter isActive={location.pathname.startsWith('/trending')}>
                 <WhatshotIcon style={{ color: `${Colors.branco}` }} />
-                <Link to="/trending" onClick={() => handleItemClick('/trending')}>
+                <Link to="/trending">
                     {/* <DashboardIcon style={{ marginRight: '10px', width: '20px' }} />  */}
                     Trending
                 </Link>
             </ButtonRouter>
             <ButtonRouter isActive={location.pathname.startsWith('/genres') || location.pathname.startsWith('/ListMovies/Genres')}>
                 <MovieIcon style={{ color: `${Colors.branco}` }} />
-                <Link to="/genres" onClick={() => handleItemClick('/genres')}>
+                <Link to="/genres">
                     {/* <DashboardIcon style={{ marginRight: '10px', width: '20px' }} />  */}
                     Genres
                 </Link>
             </ButtonRouter>
             <ButtonRouter isActive={location.pathname.startsWith('/years') || location.pathname.startsWith('/ListMovies/Year')}>
                 <CalendarTodayIcon style={{ color: `${Colors.branco}` }} />
-                <Link to="/years" onClick={() => handleItemClick('/years')}>
+                <Link to="/years">
                     {/* <DashboardIcon style={{ marginRight: '10px', width: '20px' }} />  */}
                     Years
                 </Link>

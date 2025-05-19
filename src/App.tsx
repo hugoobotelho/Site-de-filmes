@@ -1,6 +1,3 @@
-import { useState, useEffect, use } from "react"
-import axios from "axios"
-import globalStyle from "./globalStyle"
 import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import SideBar from "./components/SideBar"
 import HomeScreen from "./screens/HomeScreen"
@@ -11,7 +8,6 @@ import Header from "./components/Header"
 
 import { GenreProvider } from "./contexts/ContextGenres"
 import { MovieProvider } from "./contexts/ContextMovies"
-import { Height } from "@mui/icons-material"
 
 function App() {
 
