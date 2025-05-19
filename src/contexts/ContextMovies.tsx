@@ -25,7 +25,6 @@ export interface MovieContextType {
     moviesYear: Year[]
     requestMoviesTopRatedApi(): Promise<void>
     requestMoviesTrendingApi(): Promise<void>
-    // updatemovies(movie: movie[]): void
 }
 
 export const MovieContext = createContext<MovieContextType | undefined>(undefined);
@@ -72,19 +71,12 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
                     genre: movie.genre_ids,
                     poster: movie.poster_path
                 }
-                // moviesTopRated.push(m)
-                // setMoviesTopRated((moviesTopRated) => [...moviesTopRated, m])
                 moviesTop.push(m)
             }
         }
 
         for (let i: number = 0; i < 10; i++) {
             moviesTop.pop()
-            // setMoviesTopRated(moviesTopRated => {
-            //     const copia = [...moviesTopRated]; // Cria uma cópia para não modificar diretamente o estado
-            //     copia.splice(copia.length - 10, 10); // Remove os 10 últimos
-            //     return copia;
-            // });
         }
 
         moviesTop.sort((a: Movie, b: Movie) => (a.year.slice(0, 4) > b.year.slice(0, 4)) ? 1 : -1) //ordena os filmes com base no ano para ficar mais facil de listar os anos
@@ -128,8 +120,6 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
         
         setMoviesYear(years)
 
-        // getMoviesTrending()
-
     }
 
     const requestMoviesTrendingApi = async () => {
@@ -172,10 +162,6 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
 
 
         setMoviesTrending(moviesTrend)
-
-        // console.log(moviesTrending)
-
-        // compareRatedWithTrending()
 
     }
 

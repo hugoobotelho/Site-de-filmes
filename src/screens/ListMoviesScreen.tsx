@@ -43,8 +43,6 @@ const ListMoviesScreen = () => {
     const { id } = useParams<{ id: string }>()
     const { year } = useParams<{ year: string }>()
 
-    // const [movies, setMovies] = useState<Movie[]>([])
-    // const [genre, setGenre] = useState<Genre | undefined>()
 
     const movieContex = useMovies()
 

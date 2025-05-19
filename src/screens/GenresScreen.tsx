@@ -100,9 +100,7 @@ const GenresScreen = () => {
                                         }
                                     }}
                                 >
-                                    {/* <Link to="/ListMovies" state={{movies: g.movies, name: g.name, media: g.media}}> */}
                                     {g.name}
-                                    {/* </Link> */}
                                 </Button>
                             )
                         })

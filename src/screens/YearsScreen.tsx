@@ -6,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import { useEffect, useState, } from "react";
 
-// import { useGenres } from "../contexts/ContextGenres";
 import { useMovies } from "../contexts/ContextMovies";
 import {  useLocation, useNavigate,  } from "react-router-dom";
 
@@ -98,9 +97,7 @@ const YearsScreen = () => {
                                         }
                                     }}
                                 >
-                                    {/* <Link to="/ListMovies" state={{movies: g.movies, name: g.name, media: g.media}}> */}
                                     {y.year}
-                                    {/* </Link> */}
                                 </Button>
                             )
                         })

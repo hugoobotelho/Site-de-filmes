@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, type Dispatch, type SetStateAction, useState, type ReactNode, useContext } from "react";
+import React, { createContext, useState, type ReactNode, useContext } from "react";
 
 import { useMovies } from "../contexts/ContextMovies";
 
@@ -29,9 +29,7 @@ interface Movie {
 
 export interface GenreContextType {
     genres: Genre[]
-    // setIGenre: Dispatch<SetStateAction<IGenre[]>>
     genersMedia(): Promise<void>
-    // updateGenres(genre: Genre[]): void
 }
 
 export const GenreContext = createContext<GenreContextType | undefined>(undefined);
@@ -41,7 +39,6 @@ interface GenreProviderProps {
 }
 
 export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
-    // const [iGenre, setIGenres] = useState<IGenre[]>([]);
     const [genres, setGenre] = useState<Genre[]>([]);
 
     const movieContex = useMovies()

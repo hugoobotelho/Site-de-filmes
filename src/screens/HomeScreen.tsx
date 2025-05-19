@@ -20,12 +20,6 @@ interface Movie {
     poster: string
 }
 
-// interface Year {
-//     year: string,
-//     grade: number,
-//     movies: Movie[]
-// }
-
 interface Genre {
     name: string,
     id: number,
@@ -37,7 +31,6 @@ interface Genre {
 
 const HomeScreen = () => {
 
-    // const location = useLocation()
 
     const movieContex = useMovies()
     const genresContex = useGenres()
