@@ -34,7 +34,7 @@ function App() {
 
 
   return (
-    <Router  basename={import.meta.env.VITE_BASE_PATH || "/"}>
+    <Router  basename={import.meta.env.VITE_BASE_PATH || "/Site-de-filmes"}>
       <MovieProvider>
         <GenreProvider>
           <Routes>

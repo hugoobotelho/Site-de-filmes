@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 
-import { useMovies } from "../contexts/ContextMovies";
 
 import Skeleton from '@mui/material/Skeleton';
 import Colors from "../constants/Colors";
