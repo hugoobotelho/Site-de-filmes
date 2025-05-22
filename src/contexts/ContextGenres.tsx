@@ -1,10 +1,6 @@
 import axios from "axios";
 import React, { createContext, useState, type ReactNode, useContext } from "react";
 
-import { useMovies } from "../contexts/ContextMovies";
-
-
-
 export interface Genre {
     name: string,
     id: number,
@@ -41,7 +37,6 @@ interface GenreProviderProps {
 export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
     const [genres, setGenre] = useState<Genre[]>([]);
 
-    const movieContex = useMovies()
 
     const genersMedia = async () => {
 
@@ -87,9 +82,6 @@ export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
         }
 
         moviesTop.sort((a: Movie, b: Movie) => (a.year.slice(0, 4) > b.year.slice(0, 4)) ? 1 : -1) //ordena os filmes com base no ano para ficar mais facil de listar os anos
-
-
-        // setMoviesTopRated(moviesTop)
 
 
         const resData: any[] = []

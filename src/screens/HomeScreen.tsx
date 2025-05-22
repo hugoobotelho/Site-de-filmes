@@ -31,15 +31,12 @@ interface Genre {
 
 const HomeScreen = () => {
 
-
-    const movieContex = useMovies()
     const genresContex = useGenres()
 
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const loadData = async () => {
-            // await movieContex?.requestMoviesTopRatedApi();
             await genresContex?.genersMedia();
             setIsLoading(false);
         };
