@@ -39,9 +39,9 @@ const HomeScreen = () => {
 
     useEffect(() => {
         const loadData = async () => {
-            await movieContex?.requestMoviesTopRatedApi();
-            await genresContex?.genersMedia();              
-            setIsLoading(false);                            
+            // await movieContex?.requestMoviesTopRatedApi();
+            await genresContex?.genersMedia();
+            setIsLoading(false);
         };
 
         loadData();
@@ -51,10 +51,11 @@ const HomeScreen = () => {
     return (
         <div>
             {isLoading ? (
-                <Skeleton variant="rectangular" height={400} />
+                <Skeleton variant="rectangular" height={400} width={500} />
             ) : (
                 <BarChart
-                    height={400}
+                    borderRadius={20}
+                    height={400}    
                     series={[
                         {
                             data: genresContex?.genres.map((genre: Genre) => genre.qtdMovies),

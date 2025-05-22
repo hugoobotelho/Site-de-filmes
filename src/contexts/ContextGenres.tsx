@@ -45,7 +45,52 @@ export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
 
     const genersMedia = async () => {
 
-        await (movieContex?.requestMoviesTopRatedApi())
+        // await (movieContex?.requestMoviesTopRatedApi())
+        const dados: any[] = []
+        const moviesTop: Movie[] = []
+        for (let i: number = 1; i < 14; i++) { //pega os 20 filmes de cada pagina e repete o processo 13 vezes para pegar o 260 filmes top rated, depois eh so tirar os 10 ultimos para ficar 250
+            dados.push(await axios({
+                method: 'get',
+                url: 'https://api.themoviedb.org/3/movie/top_rated',
+                params: {
+                    api_key: 'e5d15901d7682b4229433ec06707f1cd',
+                    language: 'pt-BR',
+                    page: i
+                }
+            }).then(response => {
+
+                return response.data.results
+
+            }).catch(e => {
+                console.log("Houve um erro: " + e)
+            })
+            )
+
+        }
+
+        for (const dado of dados) {
+            for (const movie of dado) {
+                let m: Movie = {
+                    name: movie.title,
+                    overview: movie.overview,
+                    year: movie.release_date.slice(0, 4),
+                    grade: movie.vote_average,
+                    genre: movie.genre_ids,
+                    poster: movie.poster_path
+                }
+                moviesTop.push(m)
+            }
+        }
+
+        for (let i: number = 0; i < 10; i++) {
+            moviesTop.pop()
+        }
+
+        moviesTop.sort((a: Movie, b: Movie) => (a.year.slice(0, 4) > b.year.slice(0, 4)) ? 1 : -1) //ordena os filmes com base no ano para ficar mais facil de listar os anos
+
+
+        // setMoviesTopRated(moviesTop)
+
 
         const resData: any[] = []
 
@@ -82,8 +127,8 @@ export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
             let sum: number = 0;
             let qtdMovies: number = 0;
             let movies: Movie[] = []
-            if (movieContex?.moviesTopRated) {
-                for (let movie of movieContex?.moviesTopRated) {
+            if (moviesTop) {
+                for (let movie of moviesTop) {
                     if (movie.genre.includes(gen.id)) {
                         sum += movie.grade
                         qtdMovies++
